@@ -48,22 +48,27 @@ namespace Core.Abstraction
             return process.MainModule?.FileName;
         }
 
-        public void Invoke()
+        protected void Invoke()
         {
             if (string.IsNullOrWhiteSpace(ExecutablePath)) return;
-            
-            var proc = new Process
+
+            Invoke(ExecutablePath, out _);
+        }
+
+        public static void Invoke(string processPath, out Process process)
+        {
+            process = new Process
             {
                 StartInfo =
                 {
-                    FileName = ExecutablePath,
+                    FileName = processPath,
                     UseShellExecute = true,
                     Verb = "runas"
                 }
             };
-            proc.Start();
+            process.Start();
         }
-
+        
         public void Finish()
         {
             if (string.IsNullOrWhiteSpace(ExecutablePath)) return;
