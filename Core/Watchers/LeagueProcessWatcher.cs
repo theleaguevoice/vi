@@ -18,10 +18,9 @@ namespace Core.Watchers
         public LeagueProcessWatcher() : base("LeagueClientUx")
         {
         }
-
+        
         public override void Start()
         {
-
             _startWatcher = new ManagementEventWatcher(
                 new WqlEventQuery(@$"SELECT * FROM Win32_ProcessStartTrace WHERE ProcessName = '{ProcessName}.exe'"));
 
@@ -33,11 +32,22 @@ namespace Core.Watchers
 
             _startWatcher.Start();
             _stopWatcher.Start();
+            
+            VerifyAlreadyRunningLeague();
+        }
+
+        private void VerifyAlreadyRunningLeague()
+        {
+            if(string.IsNullOrWhiteSpace(ExecutablePath))
+                return;
+            
+            OnLeagueStarted?.Invoke(ExecutablePath);
+            IsLeagueRunning = true;
         }
 
         private void StopWatcherOnEventArrived(object sender, EventArrivedEventArgs e)
         {
-            if (!IsLeagueRunning)
+            if (!IsLeagueRunning || IsProcessStillAlive())
                 return;
 
             IsLeagueRunning = false;
@@ -55,10 +65,10 @@ namespace Core.Watchers
             var league = process[0];
             var processPath = GetProcessPath(league);
 
-            OnLeagueStarted?.Invoke(ExecutablePath);
-
             IsLeagueRunning = true;
             ExecutablePath = processPath;
+
+            OnLeagueStarted?.Invoke(ExecutablePath);
         }
 
         public override void Stop()

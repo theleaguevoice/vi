@@ -17,11 +17,14 @@ namespace Core.Abstraction
 
             if (process.Any())
                 ExecutablePath = GetProcessPath(process.First());
+            
         }
-
+        
         protected ProcessWatcher()
         {
         }
+
+        protected bool IsProcessStillAlive() => GetProcessesByName(ProcessName).Any();
 
         protected static Process[] GetProcessesByName(string name)
         {
