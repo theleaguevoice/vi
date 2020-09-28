@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Management;
+using System.Security.Permissions;
 using Core.Abstraction;
 
 namespace Core.Watchers
 {
+    [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
     public class LeagueProcessWatcher : ProcessWatcher
     {
         public event Action<string> OnLeagueStarted;

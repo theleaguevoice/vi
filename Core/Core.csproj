@@ -44,16 +44,19 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Abstraction\TextFileWatcher.cs" />
+        <Compile Include="Abstraction\IFileHandler.cs" />
         <Compile Include="Abstraction\ProcessWatchercs.cs" />
+        <Compile Include="Data\Model\Lockfile.cs" />
+        <Compile Include="Handlers\LockFileHandler.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Static\Keys.cs" />
+        <Compile Include="Static\Utils.cs" />
         <Compile Include="Watchers\LeagueProcessWatcher.cs" />
+        <Compile Include="Watchers\LockFileWatcher.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Data\Model" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

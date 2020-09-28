@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using Core.Abstraction;
-using Core.Watchers;
 using Xunit;
 
 namespace Tests
