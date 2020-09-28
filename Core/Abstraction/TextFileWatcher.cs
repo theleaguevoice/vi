@@ -4,16 +4,23 @@ using Core.Static;
 
 namespace Core.Abstraction
 {
-    public abstract class TextFileWatcher<T>
+    public abstract class TextFileWatcher<T> : IProcess
     {
         private string _watchPath;
         private T _lastState;
         private readonly IFileHandler<T> _fileHandler;
         private FileSystemWatcher _watcher = null;
+        public bool IsRunning { get; set; }
 
         public TextFileWatcher(string watchPath, IFileHandler<T> fileHandler)
         {
             _watchPath = watchPath;
+            _fileHandler = fileHandler;
+            IsRunning = false;
+        }
+
+        public TextFileWatcher(IFileHandler<T> fileHandler)
+        {
             _fileHandler = fileHandler;
         }
 
@@ -23,7 +30,7 @@ namespace Core.Abstraction
                 return;
 
             if (string.IsNullOrWhiteSpace(_watchPath))
-                throw new Exception("Watch Path must not be null/empty.");
+                return;
 
             _watcher = new FileSystemWatcher(_watchPath)
             {
@@ -62,10 +69,8 @@ namespace Core.Abstraction
 
         protected abstract void OnFileChanged(T file);
 
-        public void ChangePath(string newPath)
+        public void SetPath(string newPath)
         {
-            if (!string.IsNullOrWhiteSpace(_watchPath)) return;
-
             _watchPath = newPath;
             if (_watcher == null)
                 ConfigureWatcher();
@@ -81,6 +86,7 @@ namespace Core.Abstraction
 
             ConfigureWatcher();
             _watcher.EnableRaisingEvents = true;
+            IsRunning = true;
         }
 
         public T GetContent(bool fresh)
@@ -98,6 +104,7 @@ namespace Core.Abstraction
 
         public void Stop()
         {
+            IsRunning = false;
             _watcher.Dispose();
         }
     }

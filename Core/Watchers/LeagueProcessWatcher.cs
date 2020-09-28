@@ -4,10 +4,10 @@ using System.Management;
 using System.Security.Permissions;
 using Core.Abstraction;
 
-namespace Core.Watchers
+namespace Core.Watchers 
 {
     [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
-    public class LeagueProcessWatcher : ProcessWatcher
+    public class LeagueProcessWatcher : ProcessWatcher, ILeagueProcessWatcher, IProcess
     {
         public event Action<string> OnLeagueStarted;
         public event Action OnLeagueStopped;
@@ -21,7 +21,7 @@ namespace Core.Watchers
         {
         }
         
-        public override void Start()
+        public void Start()
         {
             _startWatcher = new ManagementEventWatcher(
                 new WqlEventQuery(@$"SELECT * FROM Win32_ProcessStartTrace WHERE ProcessName = '{ProcessName}.exe'"));
@@ -73,7 +73,7 @@ namespace Core.Watchers
             OnLeagueStarted?.Invoke(ExecutablePath);
         }
 
-        public override void Stop()
+        public void Stop()
         {
             _startWatcher?.Stop();
             _stopWatcher?.Stop();

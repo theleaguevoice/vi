@@ -81,9 +81,6 @@ namespace Core.Abstraction
                 p?.Kill();
             }
         }
-
-        public abstract void Start();
-
-        public abstract void Stop();
+        
     }
 }
