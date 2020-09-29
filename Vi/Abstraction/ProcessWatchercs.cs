@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Linq;
 
-namespace Core.Abstraction
+namespace Vi.Abstraction
 {
     public abstract class ProcessWatcher
     {

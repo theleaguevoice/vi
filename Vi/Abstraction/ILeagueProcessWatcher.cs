@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core.Abstraction
+namespace Vi.Abstraction
 {
     public interface ILeagueProcessWatcher
     {

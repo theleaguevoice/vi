@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
-using Core.Abstraction;
+using Vi.Abstraction;
 using Xunit;
 
 namespace Tests

@@ -7,8 +7,8 @@
         <ProjectGuid>{0D376A9C-2361-44C4-8FED-4603FB29D982}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>Core</RootNamespace>
-        <AssemblyName>Core</AssemblyName>
+        <RootNamespace>Vi</RootNamespace>
+        <AssemblyName>Vi</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <LangVersion>8</LangVersion>

@@ -1,4 +1,4 @@
-﻿namespace Core.Abstraction
+﻿namespace Vi.Abstraction
 {
     public interface IProcess
     {

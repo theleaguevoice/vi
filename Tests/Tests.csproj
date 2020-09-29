@@ -57,16 +57,16 @@
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\Core\Core.csproj">
-        <Project>{0d376a9c-2361-44c4-8fed-4603fb29d982}</Project>
-        <Name>Core</Name>
-      </ProjectReference>
-    </ItemGroup>
-    <ItemGroup>
       <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Mocks" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Vi\Vi.csproj">
+        <Project>{0d376a9c-2361-44c4-8fed-4603fb29d982}</Project>
+        <Name>Vi</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

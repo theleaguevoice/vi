@@ -1,4 +1,4 @@
-﻿namespace Core.Data.Model
+﻿namespace Vi.Data.Model
 {
     public class Lockfile
     {

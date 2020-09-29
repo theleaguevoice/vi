@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Threading;
-using Core.Abstraction;
-using Core.Data.Model;
+using Vi.Abstraction;
+using Vi.Data.Model;
 
-namespace Core
+namespace Vi
 {
     public class SecurityManager : IProcess
     {

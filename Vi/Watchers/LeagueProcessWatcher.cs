@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Management;
 using System.Security.Permissions;
-using Core.Abstraction;
+using Vi.Abstraction;
 
-namespace Core.Watchers 
+namespace Vi.Watchers 
 {
     [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
     public class LeagueProcessWatcher : ProcessWatcher, ILeagueProcessWatcher, IProcess

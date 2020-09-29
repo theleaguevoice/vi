@@ -1,6 +1,6 @@
-﻿using Core;
-using Core.Handlers;
-using Core.Watchers;
+﻿using Vi;
+using Vi.Handlers;
+using Vi.Watchers;
 
 namespace Runner
 {

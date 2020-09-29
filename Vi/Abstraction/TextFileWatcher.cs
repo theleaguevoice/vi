@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using Core.Static;
+using Vi.Static;
 
-namespace Core.Abstraction
+namespace Vi.Abstraction
 {
     public abstract class TextFileWatcher<T> : IProcess
     {

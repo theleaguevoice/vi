@@ -1,6 +1,6 @@
 ﻿using System;
-using Core.Abstraction;
-using Core.Data.Model;
+using Vi.Abstraction;
+using Vi.Data.Model;
 
 namespace Runner
 {

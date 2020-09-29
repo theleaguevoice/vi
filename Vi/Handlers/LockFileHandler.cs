@@ -1,7 +1,7 @@
-﻿using Core.Abstraction;
-using Core.Data.Model;
+﻿using Vi.Abstraction;
+using Vi.Data.Model;
 
-namespace Core.Handlers
+namespace Vi.Handlers
 {
     public class LockFileHandler : IFileHandler<Lockfile>
     {
