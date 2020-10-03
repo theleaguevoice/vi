@@ -21,6 +21,7 @@ using Vi.Watchers;
 internal static class Program
 {
     private static SecurityManager _manager;
+
     public static void Main()
     {
         // you must provide an implementation of `TextFileWatcher<Lockfile>`
