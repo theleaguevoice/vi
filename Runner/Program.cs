@@ -1,4 +1,6 @@
 ﻿using Vi;
+using Vi.Abstraction;
+using Vi.Data.Model;
 using Vi.Handlers;
 using Vi.Watchers;
 
@@ -10,8 +12,8 @@ namespace Runner
         public static void Main()
         {
             // you must provide an implementation of `TextFileWatcher<Lockfile>`
-            var lockfileWatcher = new LockfileWatcher(new LockFileHandler());
-            var processWatcher = new LeagueProcessWatcher();
+            TextFileWatcher<Lockfile> lockfileWatcher = new LockfileWatcher(new LockFileHandler());
+            ILeagueProcessWatcher processWatcher = new LeagueProcessWatcher();
 
             // references may be provided by some IOC container
             _manager = new SecurityManager(processWatcher, lockfileWatcher);
