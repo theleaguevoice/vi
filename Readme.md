@@ -6,7 +6,33 @@ When dealing with LCU Apis and WebSockets, apps must read auth parameters from a
 
 ![VI](https://giffiles.alphacoders.com/527/52728.gif)
 
-## How it works ?
+## How it works 
 Vi is a library written in `C#` to be used, in dotnet projects.
 
 It handles the flow of getting Lcu `auth token` and websocket `port`.
+
+## How to use it 
+
+````c#
+using Vi;
+using Vi.Handlers;
+using Vi.Watchers;
+
+internal static class Program
+{
+    private static SecurityManager _manager;
+
+    public static void Main()
+    {
+        // you must provide an implementation of `TextFileWatcher<Lockfile>`
+        var lockfileWatcher = new LockfileWatcher(new LockFileHandler());
+        var processWatcher = new LeagueProcessWatcher();
+
+        // references may be provided by some IOC container
+        _manager = new SecurityManager(processWatcher, lockfileWatcher);
+        
+        // this call will block the main Thread, this whole manager should run within dedicated Thread. 
+        _manager.Start();
+    }
+}
+````
