@@ -1,4 +1,4 @@
-﻿namespace Core.Static
+﻿namespace Vi.Static
 {
     public class Keys
     {

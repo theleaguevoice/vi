@@ -40,6 +40,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="LockfileWatcher.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
@@ -47,9 +48,9 @@
       <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\Core\Core.csproj">
+      <ProjectReference Include="..\Vi\Vi.csproj">
         <Project>{0d376a9c-2361-44c4-8fed-4603fb29d982}</Project>
-        <Name>Core</Name>
+        <Name>Vi</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
