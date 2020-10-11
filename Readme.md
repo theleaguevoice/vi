@@ -31,7 +31,7 @@ internal static class Program
         // references may be provided by some IOC container
         _manager = new SecurityManager(processWatcher, lockfileWatcher);
         
-        // this call will block the main Thread, this whole manager should run within dedicated Thread. 
+        // this call will block the main Thread, this whole manager should run within his own dedicated Thread. 
         _manager.Start();
     }
 }
