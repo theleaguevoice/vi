@@ -6,7 +6,6 @@ using Vi.Abstraction;
 
 namespace Vi.Watchers 
 {
-    [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
     public class LeagueProcessWatcher : ProcessWatcher, ILeagueProcessWatcher, IProcess
     {
         public event Action<string> OnLeagueStarted;
